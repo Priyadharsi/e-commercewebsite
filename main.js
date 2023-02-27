@@ -185,8 +185,8 @@
                 cartcontent.append(cartdesign,carttype,cartprice,quantity,addplus,minus,deletebtn);
                 cartcon.append(colcart,newline,costdivi);
                 costdivi.append(buy,totalcost);
-                addplus.onclick=increase.bind(null,elm.qty);
-                minus.onclick=decrease.bind(null,elm.qty);
+                // addplus.onclick=increase.bind(null,elm.qty);
+                // minus.onclick=decrease.bind(null,elm.qty);
                 deletebtn.onclick=deleteItems.bind(null,elm.id);
 
                 buy.style.backgroundColor="red";
@@ -209,7 +209,7 @@
                 cartprice.innerText="Rs."+ elm.amount;
                 quantity.innerText="Quantity :" + elm.qty;
                 buy.innerText="Buy Now";
-                totalcost.innerText="Total Cost: " + "Rs.";
+                totalcost.innerText="Total Cost: " + "Rs." + total(cartlist);
                 addplus.innerText="+";
                 minus.innerText="-";
                 deletebtn.innerText="Delete";
@@ -221,20 +221,33 @@
             //  })
 
             let qty=1;
-            function increase(qty){
+            addplus.addEventListener("click",function(){
                       qty ++;
-                      quantity.innerText = qty;
-                       console.log(quantity); 
-                 }
+                      quantity.innerText ="quantity :" + qty;
+                 });
+           
+            minus.addEventListener("click",function(){
+
+           
+                   if (qty > 1){
+                        qty --;
+                        quantity.innerText ="quantity :" + qty;
+                   }
+            });
 
             
-            function decrease(qty){
-                        qty --;
-                        quantity.innerText = qty;
-                        console.log(quantity); 
-        }   
+            function total(elm){
+                let totalprice=0;
+                totalprice+= elm.qty * elm.amount;
+                 totalcost.innerText=totalprice;
+                console.log(totalprice);
+            }
+             total(cartlist);
+
+        
+
         buy.addEventListener("click",function(){
-            alert("thankyou for your order");
+            
         });
     });
 }
