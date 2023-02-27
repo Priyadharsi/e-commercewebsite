@@ -33,7 +33,20 @@
                     <div class="nav-button">
                         <a href="#" class="search"><i class="fa fa-search" aria-hidden="true"></i></a>
                         <a href="#" class="people"><i class="fa fa-users" aria-hidden="true"></i></a>
-                        <a href="#" class="btn"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        <div class="addcart-btn">
+                            <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                              <div class="offcanvas-header">
+                                  <h5 id="offcanvasRightLabel">Your Cart List </h5>
+                                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                              </div>
+                              <div class="offcanvas-body">
+                                   <div id="cart-content">
+
+                                   </div>
+                              </div>
+                              </div>
+                          </div>
                     </div>
                 </div>
                 </div>
@@ -45,6 +58,7 @@
                 <div class="bannerbg text-center">
                     <img src="image/ldp_decor.png" alt="user">
                 </div>
+                
                 <div class="bannercontent text-center">
                     <h2>Kento - Chair</h2>
                     <p>Shop Now</p>
@@ -55,14 +69,22 @@
 <section class="app-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 app">
                 <div class="app-box">
                     <img src="image/kosi_banner1.webp" alt="user">
                 </div>
+                <div class="app-content">
+                    <h3>Chairs</h3>
+                    <button class="app-btn"><a href="#">View All</a></button>
+                </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 app">
                 <div class="app-img">
                     <img src="image/kosi_banner2.webp" alt="user">
+                </div>
+                <div class="app-content">
+                    <h3>Lighting</h3>
+                    <button class="app-btn"><a href="#">View All</a></button>
                 </div>
             </div>
         </div>
@@ -83,18 +105,21 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.129</p>
                 </div>
-            </div> 
-            <div class=" col-lg-3">
+                <a href="#" class="furn-btn">Add To Cart</a>
+            </div>  -->
+           <!--- <div class=" col-lg-3">
                 <div class="furniture-img">
                     <img src="image/hummingbird-vector-graphics.jpg" alt="pic">
                 </div>
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.110</p>
+                    
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div> 
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -103,8 +128,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.311</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -113,8 +139,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.412</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -123,8 +150,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.513</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -133,8 +161,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.856</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -143,8 +172,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.656</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -153,8 +183,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.756</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -163,8 +194,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.10000</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -173,8 +205,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.12000</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -183,8 +216,9 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.11120</p>
                 </div>
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
             </div>
             <div class=" col-lg-3">
                 <div class="furniture-img">
@@ -193,13 +227,11 @@
                 <div class="furniture-rating">
                     <h6>Studio Design</h6>
                     <h5>Afternoon Coat Hanger</h5>
-                    <p>$23.90$19.12</p>
+                    <p>Rs.13000</p>
                 </div>
-            </div> 
+                <button class="furn-btn"><a href="#">Add To Cart</a></button>
+            </div>  -->
             
-            <---<div class="fur-btn text-center id="furniturebtn">
-                <button class="furn-btn"><a href="#">View More</a></button>
-            </div> -->
         </div>
     </div>
 </section>
@@ -224,27 +256,27 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div class="block-box">
+                <div class="block-box text-center">
                     <img src="image/8-thumb.jpg" alt="picture">
                     <p>#CHAIRS, APR 18,2020</p>
                     <h4>Urna pretium elit mauris cursus <br> Curavitur at elit Vestibulum</h4>
-                    <h6>Read More</h6>
+                    <button class="blog-btn"><a href="#">Read More</a></button>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="block-box">
+                <div class="block-box text-center">
                     <img src="image/7-thumb.jpg" alt="picture">
                     <p>#FURNITURE, NOV 28,2019</p>
                     <h4>Nullam ullamcorper nisl quis ornare  molestie</h4>
-                    <h6>Read More</h6>
+                    <button class="blog-btn"><a href="#">Read More</a></button>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="block-box">
+                <div class="block-box text-center">
                     <img src="image/6-thumb.jpg" alt="picture">
                     <p>#FURNITURE, NOV 28,2019</p>
                     <h4>Turpis at eleifend mi elit Aenean porta ac sed faucibus</h4>
-                    <h6>Read More</h6>
+                    <button class="blog-btn"><a href="#">Read More</a></button>
                 </div>
             </div>
             <div class="blogs-btn text-center">
@@ -258,7 +290,7 @@
         <div class="insta-content text-center">
             <h3>Our Instagram</h3>
             <h5>Follow our store on Instagram</h5>
-            <p>Follow US</p>
+            <button class="insta-btn"><a href="#">Follow US</a></button>
         </div>
     </div>
 </section>
@@ -314,7 +346,16 @@
 
         </div>
     </div>
-    <script src="main.js"></script> 
 </section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="main.js"></script> 
+
+
+
+
+
 </body>
 </html>

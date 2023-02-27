@@ -27,6 +27,13 @@
     color: #78A400;
     
 }
+.offcanvas-end {
+    top: 100px;
+    right: 0;
+    width: 400px;
+    border-left: 1px solid rgba(0,0,0,.2);
+    /* transform: translateX(100%); */
+}
 .nav-button{
     display:flex;
 }
@@ -36,42 +43,10 @@
     font-size: 21px;
     text-decoration: none;
 }
-/*---------------------banner-section style------------------------------ */
-/* .banner-section{
-    background-image:linear-gradient(rgb(252,246,242));
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;
-    background-position:top;
-    background-attachment:fixed;
-    padding: 230px 0 150px;
+/* .nav-button .btn{
+    font-size:20px;
 } */
-/* .bannercontent h2{
-    text-align:center;
-    font-size: 46px;
-    font-weight: 600;
-    color:rgb(0 0 0 / 50%);
-    padding: 10px 4px;
-    line-height: 60px;
-}
-.num{
-    display:flex;
-    justify-content:center;
-    margin-top: 25px;
-}
-.num-content{
-    margin: 0 40px;
-}
-.num-content h2{
-    font-size: 60px;
-    font-weight: 700;
-    text-align:center;
-}
-.num-content p{
-    font-size: 16px;
-    color: rgb(0 0 0  67%);
-    font-weight:500;
-    font-family: serif; */
+/*---------------------banner-section style------------------------------ */
 .banner-section{
     background-color:rgb(252,246,242);
     background-repeat:no-repeat;
@@ -101,9 +76,37 @@
     padding: 80px 0;
 
 }
+.app{
+    position:relative;
+    top:0;
+    left:0;
+}
 .app-box img{
     width:100%;
     height:auto;
+}
+.app-content{
+   position:absolute;
+   bottom:40px;
+   left:50px;
+   
+    
+} 
+.app-content h3{
+    font-size:28px;
+    font-weight:500;
+}
+.app-btn a{
+    text-decoration: none;
+    color:black;
+}
+.app-btn{
+    background: transparent;
+    font-size: 18px;
+    padding: 0;
+    font-family: Gilroy-SemiBold;
+    border: none;
+    border-bottom: 2px solid;
 }
 .app-img img{
     width:100%;
@@ -140,42 +143,23 @@
     font-family: serif;
     font-weight: 500;
 }
-/* .furn-btn{
-    border:2px solid black;
-    background-color:black;
-    border-radius:6px;
-    padding:14px 30px;
-    margin-top:20px;
-}
-.furn-btn:hover{
-     color:white;
-     border-color:#cd8f5c;
-     background-color:#cd8f5c;
-}
-.furn-btn a{
-    text-decoration:none;
+.furn-btn{
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 7px 6px;
+    font-family: sans-serif;
+    background: black;
     color:white;
-    font-size:16px;
-    font-weight:400;
-} */
-/* .furbtn a{
+    border: none;
+    margin-bottom: 50px;
     text-decoration:none;
-    color:black;
-    font-size:16px;
-    font-weight:400;
+
 }
-.furbtn{
-    border:2px solid black;
-    background-color:transparent;
-    border-radius:6px;
-    padding:14px 30px;
-    margin-top:20px;
-}
-.furbtn:hover{
-    color:#cd8f5c;
+
+/* button a{
+    text-decoration:none;
+    color: white;
 } */
-
-
 /*---------------------order-section style start------------------------------ */
 .order-section{
     background-image:url(../image/h1_section-banner.jpg);
@@ -229,6 +213,28 @@
     width:100%;
     height:auto;
 }
+.block-box p{
+    margin-top: 18px;
+    font-size:12px;
+    font-family:sans-serif;
+}
+.block-box h4{
+    font-size:18px;
+    font-family:sans-serif;
+    font-weight:600;
+}
+.blog-btn a{
+    text-decoration: none;
+    color:black;
+}
+.blog-btn{
+    background: transparent;
+    font-size: 18px;
+    padding: 0;
+    font-family: Gilroy-SemiBold;
+    border: none;
+    border-bottom: 2px solid;
+}
 .blogbtn{
     background:black;
     font-size:18px;
@@ -252,7 +258,7 @@
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
-    padding: 100px 0 70px;
+    padding: 140px 0 70px;
     margin-top:60px;
 }
 .insta-content h3{
@@ -265,6 +271,18 @@
     font-size:16px;
     font-family:sans-serrif;
     font-weight:400;
+}
+.insta-btn a{
+    text-decoration: none;
+    color:black;
+}
+.insta-btn{
+    background: transparent;
+    font-size: 18px;
+    padding: 0;
+    font-family: Gilroy-SemiBold;
+    border: none;
+    border-bottom: 2px solid;
 }
 .footer-section{
     padding:80px 0;
@@ -369,3 +387,27 @@
 	border-radius: 0;
 } */
 /*---------------------insta-section style end------------------------------ */
+/*---------------------cart-section style end------------------------------ */
+.cartadd{
+    display:flex;
+    
+}
+.image-fur img{
+    width:150px;
+    height:150px;
+    margin-bottom: 20px;
+
+}
+.cart-contents {
+    /* margin:38px 24px; */
+    color:#767676;
+    font-size:16px;
+    
+}
+.cart-contents h6{
+    font-size:16px;
+    color:black;
+}
+.cart-contents p{
+    color:red;
+}

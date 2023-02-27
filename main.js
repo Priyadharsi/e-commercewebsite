@@ -6,6 +6,7 @@
                  Design:"Graphic Corner",
                  furnituretype:"Bobber Small Pendant Light",
                  amount:129
+                 
              },
 		 	{
 		 	     id:2,
@@ -13,6 +14,7 @@
                  Design:"Studio Design",
                  furnituretype:"Bobber Table Lamp",
                  amount:110
+                 
              },
              {
 		 	     id:3,
@@ -59,8 +61,10 @@
 			
 		 ];
 	     let furnitures = document.getElementById("furniture");
+         let cartlist=[];
 		
 		 function showdata(data){
+            furnitures.innerHTML = "";
 		
 		   data.forEach(function(elm,i,arr){
 		    let colelm = document.createElement("div");
@@ -70,30 +74,185 @@
 		    let txtelm = document.createElement("h6");
 		    let textelm = document.createElement("h5");
 		    let paraelm = document.createElement("p");
+            // let addbtn = document.createElement("button");
+            let linkelm = document.createElement("a");
+            
+            
             
 		   
 		    colelm.setAttribute("class","col-lg-3");
 		    furnitureimg.setAttribute("class","furniture-img");
 		    furimage.setAttribute("src","image/"+elm.image);
 		    furnitureratings.setAttribute("class","furniturerating");
+            // addbtn.setAttribute("class","furn-btn");
+            linkelm.setAttribute("class","furn-btn");
+            linkelm.setAttribute("href","#");
+            linkelm.setAttribute("id","furnlink")
+            textelm.setAttribute("class","fur-type");
+            paraelm.setAttribute("class","fur-price");
+            // addbtn.setAttribute("id","ad-btn");
+
+ 
+            
             
             txtelm.style.color="#767676";
             txtelm.style.marginTop="20px";
+            colelm.style.marginBottom="20px";
+            // linkelm.style.marginBottom="20px";
 		   
 		    txtelm.innerText=elm.Design;
 		    textelm.innerText=elm.furnituretype;
 		    paraelm.innerText=elm.amount;
+            linkelm.innerText="Add To Cart";
+            linkelm.onclick=cartitem.bind(null,elm.id);
 		   
 		   
 		    furnitures.appendChild(colelm);
-		    colelm.append(furnitureimg,furnitureratings);
+		    colelm.append(furnitureimg,furnitureratings,linkelm);
 		    furnitureratings.append(txtelm,textelm,paraelm);
 		    furnitureimg.appendChild(furimage);
+        
+
            
 		   
          });
 		
          }
 		 showdata(obj);
+        
+        let btn=document.getElementById("furnlink");
+        
+
+        function cartitem(id){
+              let finddata = cartlist.find(function(items){
+                  return items.id === id;
+              })
+              if (finddata){
+                  cartlist.map(function(items){
+                    if (items.id === id){
+                    items.qty += 1;
+                    return items;
+                  }
+                  else return items;
+                  })
+                  console.log(cartlist);
+                }
+                else{
+                   let newitem = obj.find(function(items){
+                        return items.id === id;
+                   })
+                   newitem.qty = 1;
+                   cartlist.push(newitem);
+                   updateitems(cartlist);
+                   console.log(cartlist)
+            }
+        }
+        // btn.addEventListener("click",cartitem);
+        //update function
+        let cartcon=document.getElementById("cart-content");
+
+        function updateitems(data){
+            cartcon.innerHTML=""; 
+
+            data.forEach(function(elm){
+                let colcart=document.createElement("div");
+                let cartimg=document.createElement("div");
+                let cartimage=document.createElement("img");
+                let cartcontent=document.createElement("div");
+                let cartdesign=document.createElement("h5");
+                let carttype=document.createElement("h6");
+                let cartprice=document.createElement("p");
+                let quantity=document.createElement("p");
+                let addplus=document.createElement("button");
+                let minus=document.createElement("button");
+                let newline=document.createElement("hr");
+                let costdivi=document.createElement("div");
+                let buy=document.createElement("button");
+                let totalcost=document.createElement("h6");
+                let deletebtn=document.createElement("button");
 
 
+                
+
+
+                colcart.setAttribute("class","cartadd");
+                cartimg.setAttribute("class","image-fur");
+                cartimage.setAttribute("src","image/"+elm.image);
+                cartcontent.setAttribute("class","cart-contents");
+                
+                colcart.append(cartimg,cartcontent);
+                cartimg.appendChild(cartimage);
+                cartcontent.append(cartdesign,carttype,cartprice,quantity,addplus,minus,deletebtn);
+                cartcon.append(colcart,newline,costdivi);
+                costdivi.append(buy,totalcost);
+                addplus.onclick=increase.bind(null,elm.qty);
+                minus.onclick=decrease.bind(null,elm.qty);
+                deletebtn.onclick=deleteItems.bind(null,elm.id);
+
+                buy.style.backgroundColor="red";
+                buy.style.color="black";
+                buy.style.borderRadius="4px";
+                addplus.style.border="none";
+                minus.style.border="none";
+                addplus.style.margin="2px 1px";
+                minus.style.margin="2px 1px";
+                totalcost.style.textAlign="right";
+                totalcost.style.padding="0 4px";
+                deletebtn.style.padding="0 2px";
+                deletebtn.style.borderRadius="4px";
+
+
+
+
+                cartdesign.innerText=elm.Design;
+                carttype.innerText=elm.furnituretype;
+                cartprice.innerText="Rs."+ elm.amount;
+                quantity.innerText="Quantity :" + elm.qty;
+                buy.innerText="Buy Now";
+                totalcost.innerText="Total Cost: " + "Rs.";
+                addplus.innerText="+";
+                minus.innerText="-";
+                deletebtn.innerText="Delete";
+             
+            //     let qty=1;
+            //     addplus.addEventListener("click",function(){
+            //         quantity.innerText = parseInt(qty +1);
+            //         console.log(quantity);
+            //  })
+
+            let qty=1;
+            function increase(qty){
+                      qty ++;
+                      quantity.innerText = qty;
+                       console.log(quantity); 
+                 }
+
+            
+            function decrease(qty){
+                        qty --;
+                        quantity.innerText = qty;
+                        console.log(quantity); 
+        }   
+        buy.addEventListener("click",function(){
+            alert("thankyou for your order");
+        });
+    });
+}
+        updateitems(cartlist);
+
+
+        window.onload = updateitems(cartlist);
+        function deleteItems(id){
+            let finddata = cartlist.find(function(items){
+                return items.id == id;
+            })
+            if (finddata){
+                let updateitem=cartlist.filter(function(items){
+                    return items.id !== id;
+            });
+            cartlist = updateitem;
+            updateitems(cartlist);
+        }
+    }
+   
+              
