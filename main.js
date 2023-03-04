@@ -74,7 +74,6 @@
 		    let txtelm = document.createElement("h6");
 		    let textelm = document.createElement("h5");
 		    let paraelm = document.createElement("p");
-            // let addbtn = document.createElement("button");
             let linkelm = document.createElement("a");
             
             
@@ -84,13 +83,11 @@
 		    furnitureimg.setAttribute("class","furniture-img");
 		    furimage.setAttribute("src","image/"+elm.image);
 		    furnitureratings.setAttribute("class","furniturerating");
-            // addbtn.setAttribute("class","furn-btn");
             linkelm.setAttribute("class","furn-btn");
             linkelm.setAttribute("href","#");
             linkelm.setAttribute("id","furnlink")
             textelm.setAttribute("class","fur-type");
             paraelm.setAttribute("class","fur-price");
-            // addbtn.setAttribute("id","ad-btn");
 
  
             
@@ -98,7 +95,6 @@
             txtelm.style.color="#767676";
             txtelm.style.marginTop="20px";
             colelm.style.marginBottom="20px";
-            // linkelm.style.marginBottom="20px";
 		   
 		    txtelm.innerText=elm.Design;
 		    textelm.innerText=elm.furnituretype;
@@ -128,14 +124,17 @@
                   return items.id === id;
               })
               if (finddata){
-                  cartlist.map(function(items){
+                let updatecartlist=cartlist.map(function(items){
                     if (items.id === id){
                     items.qty += 1;
                     return items;
                   }
                   else return items;
                   })
-                  console.log(cartlist);
+                  cartlist=updatecartlist;
+                  updateitems(cartlist);
+                  console.log(updatecartlist);
+                  total(cartlist);
                 }
                 else{
                    let newitem = obj.find(function(items){
@@ -144,11 +143,84 @@
                    newitem.qty = 1;
                    cartlist.push(newitem);
                    updateitems(cartlist);
-                   console.log(cartlist)
+                    total(cartlist);
+                   console.log(cartlist);
             }
         }
-        // btn.addEventListener("click",cartitem);
-        //update function
+        function decrementcartitem(id){
+            let finddata = cartlist.find(function(items){
+                return items.id === id;
+            })
+            if (finddata){
+                if (finddata.qty===1){
+                    let updatecartlist=cartlist.filter(function(items){
+                        return items.id !== id;
+                    });
+                    cartlist=updatecartlist;
+                    updateitems(cartlist);
+                    total(cartlist);
+                    
+                    
+                }
+                else{
+                    let updatecartlist=cartlist.map(function(items){
+
+                        if (items.id === id){
+                        items.qty -= 1;
+                        return items;
+                      }
+                      else return items;
+                      })
+                      console.log(cartlist);
+                      cartlist=updatecartlist;
+                      updateitems(cartlist);
+                      total(cartlist);
+                    
+                }
+            }
+        }
+
+
+        function deletecartItems(id){
+            let finddata = cartlist.find(function(items){
+                return items.id == id;
+            })
+            if (finddata){
+                let updateitem=cartlist.filter(function(items){
+                    return items.id !== id;
+            });
+            cartlist=updateitem
+            updateitems(cartlist);
+            total(cartlist);
+        }
+    }
+
+    
+    function total(totalcart){
+        let totalcost=document.getElementById("totalamount");
+        let totalprice=0;  
+        totalcost.innerText="";
+        
+        if (totalcart.length>0){
+           for (let i=0;i<totalcart.length;i++){
+        
+            totalprice+= (totalcart[i].qty * totalcart[i].amount);
+            totalcost.innerText="Totalprice: Rs "+totalprice;
+            console.log(totalprice);
+           }
+        }
+         else
+         {
+            totalprice=0; 
+            totalcost=totalprice;
+    }
+         
+         
+        }
+       
+       
+        
+
         let cartcon=document.getElementById("cart-content");
 
         function updateitems(data){
@@ -165,39 +237,23 @@
                 let quantity=document.createElement("p");
                 let addplus=document.createElement("button");
                 let minus=document.createElement("button");
-                let newline=document.createElement("hr");
-                let costdivi=document.createElement("div");
-                let buy=document.createElement("button");
-                let totalcost=document.createElement("h6");
                 let deletebtn=document.createElement("button");
-
-
-                
-
+                 
 
                 colcart.setAttribute("class","cartadd");
                 cartimg.setAttribute("class","image-fur");
                 cartimage.setAttribute("src","image/"+elm.image);
                 cartcontent.setAttribute("class","cart-contents");
-                
+
+                cartcon.appendChild(colcart);
                 colcart.append(cartimg,cartcontent);
                 cartimg.appendChild(cartimage);
                 cartcontent.append(cartdesign,carttype,cartprice,quantity,addplus,minus,deletebtn);
-                cartcon.append(colcart,newline,costdivi);
-                costdivi.append(buy,totalcost);
-                // addplus.onclick=increase.bind(null,elm.qty);
-                // minus.onclick=decrease.bind(null,elm.qty);
-                deletebtn.onclick=deleteItems.bind(null,elm.id);
-
-                buy.style.backgroundColor="red";
-                buy.style.color="black";
-                buy.style.borderRadius="4px";
+            
                 addplus.style.border="none";
                 minus.style.border="none";
                 addplus.style.margin="2px 1px";
                 minus.style.margin="2px 1px";
-                totalcost.style.textAlign="right";
-                totalcost.style.padding="0 4px";
                 deletebtn.style.padding="0 2px";
                 deletebtn.style.borderRadius="4px";
 
@@ -207,65 +263,19 @@
                 cartdesign.innerText=elm.Design;
                 carttype.innerText=elm.furnituretype;
                 cartprice.innerText="Rs."+ elm.amount;
-                quantity.innerText="Quantity :" + elm.qty;
-                buy.innerText="Buy Now";
-                totalcost.innerText="Total Cost: " + "Rs." + total(cartlist);
+                quantity.innerText="quantity :" + elm.qty;
                 addplus.innerText="+";
                 minus.innerText="-";
                 deletebtn.innerText="Delete";
              
-            //     let qty=1;
-            //     addplus.addEventListener("click",function(){
-            //         quantity.innerText = parseInt(qty +1);
-            //         console.log(quantity);
-            //  })
-
-            let qty=1;
-            addplus.addEventListener("click",function(){
-                      qty ++;
-                      quantity.innerText ="quantity :" + qty;
-                 });
-           
-            minus.addEventListener("click",function(){
-
-           
-                   if (qty > 1){
-                        qty --;
-                        quantity.innerText ="quantity :" + qty;
-                   }
-            });
-
+                let qty=1;
+                addplus.onclick=cartitem.bind(null,elm.id);
+                minus.onclick=decrementcartitem.bind(null,elm.id);
+                deletebtn.onclick=deletecartItems.bind(null,elm.id);
+    
             
-            function total(elm){
-                let totalprice=0;
-                totalprice+= elm.qty * elm.amount;
-                 totalcost.innerText=totalprice;
-                console.log(totalprice);
-            }
-             total(cartlist);
-
-        
-
-        buy.addEventListener("click",function(){
             
-        });
+                
+            
     });
 }
-        updateitems(cartlist);
-
-
-        window.onload = updateitems(cartlist);
-        function deleteItems(id){
-            let finddata = cartlist.find(function(items){
-                return items.id == id;
-            })
-            if (finddata){
-                let updateitem=cartlist.filter(function(items){
-                    return items.id !== id;
-            });
-            cartlist = updateitem;
-            updateitems(cartlist);
-        }
-    }
-   
-              

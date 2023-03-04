@@ -32,7 +32,7 @@
     right: 0;
     width: 400px;
     border-left: 1px solid rgba(0,0,0,.2);
-    /* transform: translateX(100%); */
+   
 }
 .nav-button{
     display:flex;
@@ -43,12 +43,19 @@
     font-size: 21px;
     text-decoration: none;
 }
-/* .search a:hover{
-    color:black;
-} */
-/* .nav-button .btn{
-    font-size:20px;
-} */
+#totalamount{
+    display:flex;
+    justify-content:end;
+    font-size: 18px;
+}
+#buynow{
+    color: red;
+    font-size:16px;
+    padding:2px 11px;
+    background:black;
+    font-family:sans-serif;
+    border-radius:5px;
+}
 /*---------------------banner-section style------------------------------ */
 .banner-section{
     background-color:rgb(252,246,242);
@@ -158,19 +165,12 @@
     text-decoration:none;
 
 }
-
-/* button a{
-    text-decoration:none;
-    color: white;
-} */
 /*---------------------order-section style start------------------------------ */
 .order-section{
     background-image:url(../image/h1_section-banner.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
-    /* background-position:top;
-    background-attachment:fixed; */
     padding: 250px 0 70px;
     margin-top:60px;
 }
@@ -328,8 +328,6 @@
     margin-top: 20px;
 }
 .subscribe-type input{
-	/* width: 100%;
-	height: 35px; */
 	border-radius: 4px;
 	border: solid 1px #444;
 	border: none;
@@ -340,8 +338,6 @@
 	background-color: #fff;
 	border-radius: 5px;
 	overflow: hidden;
-	/* padding: 5px 114px 5px 8px;
-	margin-top: 36px; */
 }
 .subscribe-type .subscribe-button{
 	position: absolute;
@@ -356,39 +352,6 @@
 	border: none;
 	border-radius: 0;
 } 
-/* .subscribe-type{
-	position: relative;
-	background-color: #fff;
-	border-radius: 5px;
-	overflow: hidden;
-	padding: 5px 114px 5px 8px;
-	margin-top: 36px;
-}
-.subscribe-type input{
-	width: 100%;
-	height: 35px;
-	border-radius: 4px;
-	border: solid 1px #444;
-	border: none;
-	
-}
-.subscribe-type button:hover{
-	opacity: 0.9;
-	cursor: pointer;
-}
-.subscribe-type .subscribe-button{
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 100%;
-	min-width: 100px;
-	padding: 5px 10px;
-	background-color: #ffc451;
-	color: #444;
-	font-size: 17px;
-	border: none;
-	border-radius: 0;
-} */
 /*---------------------insta-section style end------------------------------ */
 /*---------------------cart-section style end------------------------------ */
 .cartadd{
@@ -402,7 +365,6 @@
 
 }
 .cart-contents {
-    /* margin:38px 24px; */
     color:#767676;
     font-size:16px;
     
